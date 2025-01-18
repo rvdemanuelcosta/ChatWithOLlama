@@ -8,22 +8,74 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ChatWithLlama.Properties
-{
-
-
+namespace ChatWithLlama.Properties {
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
-    {
-
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.8.0.0")]
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
-        public static Settings Default
-        {
-            get
-            {
+        
+        public static Settings Default {
+            get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color userNameColor {
+            get {
+                return ((global::System.Drawing.Color)(this["userNameColor"]));
+            }
+            set {
+                this["userNameColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color userTextColor {
+            get {
+                return ((global::System.Drawing.Color)(this["userTextColor"]));
+            }
+            set {
+                this["userTextColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color botNameColor {
+            get {
+                return ((global::System.Drawing.Color)(this["botNameColor"]));
+            }
+            set {
+                this["botNameColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color botTextColor {
+            get {
+                return ((global::System.Drawing.Color)(this["botTextColor"]));
+            }
+            set {
+                this["botTextColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool attachedSettingsWindow {
+            get {
+                return ((bool)(this["attachedSettingsWindow"]));
+            }
+            set {
+                this["attachedSettingsWindow"] = value;
             }
         }
     }

@@ -1,4 +1,6 @@
-﻿namespace ChatWithLlama
+﻿using System.Runtime.CompilerServices;
+
+namespace ChatWithLlama
 {
     partial class Configurations
     {
@@ -38,12 +40,20 @@
             this.button4 = new System.Windows.Forms.Button();
             this.unloadModelButton = new System.Windows.Forms.Button();
             this.loadModelButton = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.userNameColorLabel = new System.Windows.Forms.Label();
+            this.userTextColorLabel = new System.Windows.Forms.Label();
+            this.botNameColorLabel = new System.Windows.Forms.Label();
+            this.botTextColorLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.saveSettingsButton = new System.Windows.Forms.Button();
+            this.attachWindowsCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // modelsComboBox
             // 
             this.modelsComboBox.FormattingEnabled = true;
-            this.modelsComboBox.Location = new System.Drawing.Point(12, 120);
+            this.modelsComboBox.Location = new System.Drawing.Point(12, 90);
             this.modelsComboBox.Name = "modelsComboBox";
             this.modelsComboBox.Size = new System.Drawing.Size(555, 21);
             this.modelsComboBox.TabIndex = 0;
@@ -51,7 +61,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(573, 118);
+            this.button1.Location = new System.Drawing.Point(573, 88);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 23);
             this.button1.TabIndex = 1;
@@ -61,7 +71,7 @@
             // 
             // runModelButton
             // 
-            this.runModelButton.Location = new System.Drawing.Point(17, 174);
+            this.runModelButton.Location = new System.Drawing.Point(17, 144);
             this.runModelButton.Name = "runModelButton";
             this.runModelButton.Size = new System.Drawing.Size(163, 58);
             this.runModelButton.TabIndex = 2;
@@ -73,7 +83,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 100);
+            this.label1.Location = new System.Drawing.Point(12, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 16);
             this.label1.TabIndex = 3;
@@ -93,7 +103,7 @@
             // 
             this.hideCMDCheckBox.AutoSize = true;
             this.hideCMDCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hideCMDCheckBox.Location = new System.Drawing.Point(111, 100);
+            this.hideCMDCheckBox.Location = new System.Drawing.Point(111, 70);
             this.hideCMDCheckBox.Name = "hideCMDCheckBox";
             this.hideCMDCheckBox.Size = new System.Drawing.Size(88, 20);
             this.hideCMDCheckBox.TabIndex = 5;
@@ -102,7 +112,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(574, 174);
+            this.button3.Location = new System.Drawing.Point(574, 144);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(107, 58);
             this.button3.TabIndex = 6;
@@ -112,7 +122,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(186, 174);
+            this.button4.Location = new System.Drawing.Point(186, 144);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(163, 58);
             this.button4.TabIndex = 7;
@@ -122,7 +132,7 @@
             // 
             // unloadModelButton
             // 
-            this.unloadModelButton.Location = new System.Drawing.Point(469, 174);
+            this.unloadModelButton.Location = new System.Drawing.Point(469, 144);
             this.unloadModelButton.Name = "unloadModelButton";
             this.unloadModelButton.Size = new System.Drawing.Size(99, 58);
             this.unloadModelButton.TabIndex = 8;
@@ -132,7 +142,7 @@
             // 
             // loadModelButton
             // 
-            this.loadModelButton.Location = new System.Drawing.Point(355, 174);
+            this.loadModelButton.Location = new System.Drawing.Point(355, 144);
             this.loadModelButton.Name = "loadModelButton";
             this.loadModelButton.Size = new System.Drawing.Size(108, 58);
             this.loadModelButton.TabIndex = 9;
@@ -140,11 +150,94 @@
             this.loadModelButton.UseVisualStyleBackColor = true;
             this.loadModelButton.Click += new System.EventHandler(this.loadModelButton_Click);
             // 
+            // userNameColorLabel
+            // 
+            this.userNameColorLabel.AutoSize = true;
+            this.userNameColorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userNameColorLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.userNameColorLabel.Location = new System.Drawing.Point(13, 273);
+            this.userNameColorLabel.Name = "userNameColorLabel";
+            this.userNameColorLabel.Size = new System.Drawing.Size(44, 18);
+            this.userNameColorLabel.TabIndex = 10;
+            this.userNameColorLabel.Text = "User:";
+            this.userNameColorLabel.Click += new System.EventHandler(this.userNameColorLabel_Click);
+            // 
+            // userTextColorLabel
+            // 
+            this.userTextColorLabel.AutoSize = true;
+            this.userTextColorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userTextColorLabel.Location = new System.Drawing.Point(13, 297);
+            this.userTextColorLabel.Name = "userTextColorLabel";
+            this.userTextColorLabel.Size = new System.Drawing.Size(323, 18);
+            this.userTextColorLabel.TabIndex = 11;
+            this.userTextColorLabel.Text = "This is the user message text color. on the chat.";
+            this.userTextColorLabel.Click += new System.EventHandler(this.userTextColorLabel_Click_1);
+            // 
+            // botNameColorLabel
+            // 
+            this.botNameColorLabel.AutoSize = true;
+            this.botNameColorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botNameColorLabel.Location = new System.Drawing.Point(13, 321);
+            this.botNameColorLabel.Name = "botNameColorLabel";
+            this.botNameColorLabel.Size = new System.Drawing.Size(35, 18);
+            this.botNameColorLabel.TabIndex = 12;
+            this.botNameColorLabel.Text = "Bot:";
+            this.botNameColorLabel.Click += new System.EventHandler(this.botNameColorLabel_Click);
+            // 
+            // botTextColorLabel
+            // 
+            this.botTextColorLabel.AutoSize = true;
+            this.botTextColorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.botTextColorLabel.Location = new System.Drawing.Point(13, 345);
+            this.botTextColorLabel.Name = "botTextColorLabel";
+            this.botTextColorLabel.Size = new System.Drawing.Size(311, 18);
+            this.botTextColorLabel.TabIndex = 13;
+            this.botTextColorLabel.Text = "This is the bot message text color on the chat.";
+            this.botTextColorLabel.Click += new System.EventHandler(this.botTextColorLabel_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(251, 237);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(212, 25);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Appearance Settings";
+            // 
+            // saveSettingsButton
+            // 
+            this.saveSettingsButton.Location = new System.Drawing.Point(12, 425);
+            this.saveSettingsButton.Name = "saveSettingsButton";
+            this.saveSettingsButton.Size = new System.Drawing.Size(75, 23);
+            this.saveSettingsButton.TabIndex = 15;
+            this.saveSettingsButton.Text = "Save";
+            this.saveSettingsButton.UseVisualStyleBackColor = true;
+            this.saveSettingsButton.Click += new System.EventHandler(this.saveSettingsButton_Click);
+            // 
+            // attachWindowsCheckBox
+            // 
+            this.attachWindowsCheckBox.AutoSize = true;
+            this.attachWindowsCheckBox.Location = new System.Drawing.Point(377, 273);
+            this.attachWindowsCheckBox.Name = "attachWindowsCheckBox";
+            this.attachWindowsCheckBox.Size = new System.Drawing.Size(132, 17);
+            this.attachWindowsCheckBox.TabIndex = 16;
+            this.attachWindowsCheckBox.Text = "Attach window to chat";
+            this.attachWindowsCheckBox.UseVisualStyleBackColor = true;
+            this.attachWindowsCheckBox.CheckedChanged += new System.EventHandler(this.attachWindowsCheckBox_CheckedChanged);
+            // 
             // Configurations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(693, 248);
+            this.ClientSize = new System.Drawing.Size(693, 460);
+            this.Controls.Add(this.attachWindowsCheckBox);
+            this.Controls.Add(this.saveSettingsButton);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.botTextColorLabel);
+            this.Controls.Add(this.botNameColorLabel);
+            this.Controls.Add(this.userTextColorLabel);
+            this.Controls.Add(this.userNameColorLabel);
             this.Controls.Add(this.loadModelButton);
             this.Controls.Add(this.unloadModelButton);
             this.Controls.Add(this.button4);
@@ -177,5 +270,13 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button unloadModelButton;
         private System.Windows.Forms.Button loadModelButton;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Label userNameColorLabel;
+        private System.Windows.Forms.Label userTextColorLabel;
+        private System.Windows.Forms.Label botNameColorLabel;
+        private System.Windows.Forms.Label botTextColorLabel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button saveSettingsButton;
+        private System.Windows.Forms.CheckBox attachWindowsCheckBox;
     }
 }

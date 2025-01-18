@@ -29,12 +29,6 @@ namespace ChatWithLlama
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            //chatFLP.AutoScroll = true;    T o rmeove
-            //chatFLP.HorizontalScroll.Visible = false; T o rmeove
-            //chatFLP.VerticalScroll.Visible = true; T o rmeove 
-            //chatFLP.HorizontalScroll.Enabled = false; T o rmeove
-            //chatFLP.VerticalScroll.Enabled = true; T o rmeove
-            //chatFLP.FlowDirection = FlowDirection.TopDown; T o rmeove
             this.HorizontalScroll.Enabled = false;
             Timer updateLocationTimer = new Timer();
             updateLocationTimer.Interval = 10;
@@ -47,7 +41,7 @@ namespace ChatWithLlama
 
         private void UpdateLocation(object sender, EventArgs e)
         {
-            if(modelConfigurations != null)
+            if(modelConfigurations != null && Properties.Settings.Default.attachedSettingsWindow == true)
             {
                 modelConfigurations.Location = new Point(this.Location.X + this.Size.Width, this.Location.Y);
             }
@@ -55,7 +49,7 @@ namespace ChatWithLlama
            
         }
 
-        //protected override CreateParams CreateParams
+        //protected override CreateParams CreateParams  experimenting transparent chat background
         //{
         //    get
         //    {
@@ -134,47 +128,13 @@ namespace ChatWithLlama
             }
             else
             {
-                /* To remove
-                Label userNameLabel = new Label();
-                userNameLabel.MaximumSize = new Size(358, 0);
-                userNameLabel.Size = new Size(326, 0);
-                userNameLabel.AutoSize = true;
-                userNameLabel.Text = "User:";
-                userNameLabel.Parent = this.chatFLP;
-                */
-                AppendColoredText(richTextBox1, "User: \n", Color.NavajoWhite);
-                //userNameLabel.Location = new Point(0, userNameLabel.Location.Y); to remove
-                /* To remove
-                Label userTextLabel = new Label();
-                userTextLabel.Size = new Size(326, 0);
-                userTextLabel.MaximumSize = new Size(358, 0);
-                userTextLabel.AutoSize = true;
-                userTextLabel.Text = userInputBox.Text; */
-                AppendColoredText(richTextBox1, $"{userInputBox.Text} \n", Color.Orange);
-                //userTextLabel.Parent = this.chatFLP; To remove
-                //userTextLabel.Location = new Point(0, userTextLabel.Location.Y); to remove
+                AppendColoredText(richTextBox1, "User: \n", Properties.Settings.Default.userNameColor);
+                AppendColoredText(richTextBox1, $"{userInputBox.Text} \n", Properties.Settings.Default.userTextColor);
                 
                 conversationHistory.Add(new Message { role = "user", content = userInputBox.Text });
                 string res = await SendToLlama();
-                /*  To remove
-                Label ollamaName = new Label();
-                ollamaName.MaximumSize = new Size(358, 0);
-                ollamaName.Size = new Size(326, 0);
-                ollamaName.AutoSize = true;
-                ollamaName.Text = "Bot:";
-                ollamaName.Parent = this.chatFLP; */
-                AppendColoredText(richTextBox1, "Bot: \n", Color.Lime);
-                //ollamaName.Location = new Point(0, ollamaName.Location.Y);
-                /* To remove
-                Label ollamaText = new Label();
-                ollamaText.MaximumSize = new Size(358, 0);
-                ollamaText.Size = new Size(326, 0);
-                ollamaText.AutoSize = true;
-                ollamaText.Text = res;
-                ollamaText.Parent = this.chatFLP;
-                */
-                AppendColoredText(richTextBox1, $"{res} \n", Color.DarkGreen);
-                //ollamaText.Location = new Point(0, ollamaText.Location.Y);
+                AppendColoredText(richTextBox1, "Bot: \n", Properties.Settings.Default.botNameColor);
+                AppendColoredText(richTextBox1, $"{res} \n", Properties.Settings.Default.botTextColor);
                 
             }
         }
@@ -224,7 +184,7 @@ namespace ChatWithLlama
         private void ToggleChatWindowLockState()
         {
             
-            if (checkBox1.Checked)
+            if (lockChatCheckBox.Checked)
             {
                 this.FormBorderStyle = FormBorderStyle.None;
             }

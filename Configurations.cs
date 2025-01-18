@@ -12,6 +12,8 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using ChatWithLlama.Properties;
+using System.Configuration;
 
 namespace ChatWithLlama
 {
@@ -21,6 +23,7 @@ namespace ChatWithLlama
         public Configurations()
         {
             InitializeComponent();
+            FormClosing += Configurations_FormClosing;
         }
 
         private void Configurations_Load(object sender, EventArgs e)
@@ -28,7 +31,9 @@ namespace ChatWithLlama
             //modelsComboBox.Items.Add("llama3.2:1b");
             LoadModels();
             hideCMDCheckBox.Checked = true;
-
+            attachWindowsCheckBox.Checked = Properties.Settings.Default.attachedSettingsWindow;
+            LoadColors();
+            Properties.Settings.Default.Reload();
         }
 
         
@@ -45,6 +50,10 @@ namespace ChatWithLlama
             process.StartInfo = pstartInfo;
             process.Start();
             LoadModel();
+        }
+        private void Configurations_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.Reload();
         }
         
         private async void LoadModels()
@@ -91,6 +100,7 @@ namespace ChatWithLlama
         private void button1_Click(object sender, EventArgs e)
         {
             LoadModels();
+            colorDialog1.ShowDialog();
         }
 
         private void stopModelButton_Click(object sender, EventArgs e)
@@ -168,6 +178,69 @@ namespace ChatWithLlama
             Form1.modelName = null;
             Form1.loadedModelTextLabel.Text = "None";
             Form1.loadedModelTextLabel.ForeColor = Color.Red;
+        }
+        private void UpdateColors(Color userNameColor, Color userTextColor, Color botNameColor, Color botTextColor)
+        {
+            Properties.Settings.Default.userNameColor = userNameColor;
+            Properties.Settings.Default.userTextColor = userTextColor;
+            Properties.Settings.Default.botNameColor = botNameColor;
+            Properties.Settings.Default.botTextColor = botTextColor;
+            LoadColors();
+            MessageBox.Show("Some settings require restart to take effect.");
+        }
+
+        private void LoadColors()
+        {
+            userNameColorLabel.ForeColor = Properties.Settings.Default.userNameColor;
+            userTextColorLabel.ForeColor = Properties.Settings.Default.userTextColor;
+            botNameColorLabel.ForeColor = Properties.Settings.Default.botNameColor;
+            botTextColorLabel.ForeColor = Properties.Settings.Default.botTextColor;
+        }
+        private void userNameColorLabel_Click(object sender, EventArgs e)
+        {
+            ChangeLabelColor(userNameColorLabel);
+        }
+
+        private void saveSettingsButton_Click(object sender, EventArgs e)
+        {
+            UpdateColors(userNameColorLabel.ForeColor, userTextColorLabel.ForeColor, botNameColorLabel.ForeColor, botTextColorLabel.ForeColor);
+            Properties.Settings.Default.Save();
+        }
+
+        private void userTextColorLabel_Click_1(object sender, EventArgs e)
+        {
+            ChangeLabelColor(userTextColorLabel);
+        }
+
+        private void botNameColorLabel_Click(object sender, EventArgs e)
+        {
+            ChangeLabelColor(botNameColorLabel);
+        }
+
+        private void botTextColorLabel_Click(object sender, EventArgs e)
+        {
+            ChangeLabelColor(botTextColorLabel);
+        }
+        
+        private void ChangeLabelColor(Label label)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                label.ForeColor = colorDialog1.Color;
+            }
+        }
+
+        private void attachWindowsCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (attachWindowsCheckBox.Checked)
+            {
+                Properties.Settings.Default.attachedSettingsWindow = true;
+            }
+            else
+            {
+                Properties.Settings.Default.attachedSettingsWindow = false;
+            }
+            
         }
     }
 }
