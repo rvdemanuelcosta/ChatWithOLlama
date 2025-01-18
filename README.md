@@ -14,6 +14,7 @@ This is a C# Windows Forms application that allows users to run and chat with Ol
 ## Known problems
 * **No chat history**: currently there is no way to save the chat messages, once the program is closed
 	it will erase the chat.
+* When the user press the run model button it creates a process and it acumulates for each click on that button.
 
 ## Getting Started
 

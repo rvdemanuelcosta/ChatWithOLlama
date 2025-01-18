@@ -19,7 +19,9 @@ namespace ChatWithLlama
 {
     public partial class Configurations : Form
     {
-        
+        Process stopModel;
+        ProcessStartInfo pstartInfo;
+        Process runModelprocess;
         public Configurations()
         {
             InitializeComponent();
@@ -39,21 +41,33 @@ namespace ChatWithLlama
         
         private void RunModel()
         {
-            Process process = new Process();
-            ProcessStartInfo pstartInfo = new ProcessStartInfo();
+            if (runModelprocess != null && !runModelprocess.HasExited)
+            {
+                runModelprocess.Kill();
+            }
+            runModelprocess = new Process();
+            pstartInfo = new ProcessStartInfo();
             if(hideCMDCheckBox.Checked)
             {
-                pstartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                //pstartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             }
             pstartInfo.FileName = "cmd.exe";
             pstartInfo.Arguments = $"/C ollama run {modelsComboBox.SelectedItem.ToString()}";
-            process.StartInfo = pstartInfo;
-            process.Start();
+            pstartInfo.CreateNoWindow = true;
+            pstartInfo.UseShellExecute = false;
+            runModelprocess.StartInfo = pstartInfo;
+
+            runModelprocess.Start();
             LoadModel();
         }
         private void Configurations_FormClosing(object sender, FormClosingEventArgs e)
         {
             Properties.Settings.Default.Reload();
+            
+            if (runModelprocess != null && !runModelprocess.HasExited)
+            {
+                runModelprocess.Kill();
+            }
         }
         
         private async void LoadModels()
@@ -111,11 +125,13 @@ namespace ChatWithLlama
         private void StopModel()
         {
             UnloadModel();
-            Process stopModel = new Process();
+            stopModel = new Process();
             ProcessStartInfo stopModelInfo = new ProcessStartInfo();
-            stopModelInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            //stopModelInfo.WindowStyle = ProcessWindowStyle.Hidden;
             stopModelInfo.FileName = "cmd.exe";
             stopModelInfo.Arguments = $"/C ollama stop {modelsComboBox.SelectedItem.ToString()}";
+            stopModelInfo.UseShellExecute = false;
+            stopModelInfo.CreateNoWindow = true;
             stopModel.StartInfo = stopModelInfo;
             stopModel.Start();
         }

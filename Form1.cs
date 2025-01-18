@@ -135,6 +135,7 @@ namespace ChatWithLlama
                 string res = await SendToLlama();
                 AppendColoredText(richTextBox1, "Bot: \n", Properties.Settings.Default.botNameColor);
                 AppendColoredText(richTextBox1, $"{res} \n", Properties.Settings.Default.botTextColor);
+                userInputBox.Text = "";
                 
             }
         }
@@ -192,6 +193,16 @@ namespace ChatWithLlama
             {
                 this.FormBorderStyle = FormBorderStyle.FixedSingle;
             }
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void userInputBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 
