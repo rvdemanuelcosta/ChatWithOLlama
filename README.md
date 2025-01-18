@@ -7,6 +7,13 @@ This is a C# Windows Forms application that allows users to run and chat with Ol
 
 * **Text-based Chat**: Interact with Ollama's text models through a user-friendly interface.
 * **User-Friendly Interface**: A easy to use application, no need to run commands.
+* **Compact Interface**: The chat window was developed to take little screen space.
+* **Aways on top**: The user can set the chat window to be aways on top.
+
+
+## Known problems
+* **No chat history**: currently there is no way to save the chat messages, once the program is closed
+	it will erase the chat.
 
 ## Getting Started
 
