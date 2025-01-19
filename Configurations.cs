@@ -178,9 +178,9 @@ namespace ChatWithLlama
         }
         private void LoadModel()
         {
-            Form1.modelName = modelsComboBox.SelectedItem.ToString();
-            Form1.loadedModelTextLabel.Text = modelsComboBox.SelectedItem.ToString();
-            Form1.loadedModelTextLabel.ForeColor = Color.Green;
+            MainForm.modelName = modelsComboBox.SelectedItem.ToString();
+            MainForm.loadedModelTextLabel.Text = modelsComboBox.SelectedItem.ToString();
+            MainForm.loadedModelTextLabel.ForeColor = Color.Green;
         }
 
         private void unloadModelButton_Click(object sender, EventArgs e)
@@ -191,9 +191,9 @@ namespace ChatWithLlama
 
         private void UnloadModel()
         {
-            Form1.modelName = null;
-            Form1.loadedModelTextLabel.Text = "None";
-            Form1.loadedModelTextLabel.ForeColor = Color.Red;
+            MainForm.modelName = null;
+            MainForm.loadedModelTextLabel.Text = "None";
+            MainForm.loadedModelTextLabel.ForeColor = Color.Red;
         }
         private void UpdateColors(Color userNameColor, Color userTextColor, Color botNameColor, Color botTextColor)
         {

@@ -78,5 +78,29 @@ namespace ChatWithLlama.Properties {
                 this["attachedSettingsWindow"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string systemMessageText {
+            get {
+                return ((string)(this["systemMessageText"]));
+            }
+            set {
+                this["systemMessageText"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Segoe Script, 14.25pt")]
+        public global::System.Drawing.Font chatHistoryFont {
+            get {
+                return ((global::System.Drawing.Font)(this["chatHistoryFont"]));
+            }
+            set {
+                this["chatHistoryFont"] = value;
+            }
+        }
     }
 }

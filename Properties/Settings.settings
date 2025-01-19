@@ -17,5 +17,11 @@
     <Setting Name="attachedSettingsWindow" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="systemMessageText" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="chatHistoryFont" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Segoe Script, 14.25pt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

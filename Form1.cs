@@ -16,14 +16,16 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace ChatWithLlama
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         List<Message> conversationHistory = new List<Message>();
         Configurations modelConfigurations;
+        public static string systemMessageText = "";
+        SystemMessageForm smf;
         public static Label loadedModelTextLabel;
         public static string modelName { get; set; }
         
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -37,6 +39,11 @@ namespace ChatWithLlama
             loadedModelTextLabel = this.activeModelTextLabel;
             loadedModelTextLabel.Text = "None";
             loadedModelTextLabel.ForeColor = Color.Red;
+            if (systemMessageCheckBox.Checked)
+            {
+                UpdateSystemMessageText();
+            }
+            UpdateChatHistoryFont();
         }
 
         private void UpdateLocation(object sender, EventArgs e)
@@ -69,12 +76,12 @@ namespace ChatWithLlama
                     httpClient.DefaultRequestHeaders.Accept.Clear();
                     httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                    
+
                     var request = new ChatRequest
                     {
                         model = modelName,
                         stream = false,
-                        messages = new List<Message>(conversationHistory) // Use the entire conversation history
+                        messages = new List<Message>(conversationHistory), // Use the entire conversation history
                         /*
                         messages = new List<Message>
                         {
@@ -122,21 +129,35 @@ namespace ChatWithLlama
 
         private async void userSendButton_Click(object sender, EventArgs e)
         {
-           if(userInputBox.Text == "" || modelName == null)
+           if(modelName == null || userInputBox.Text == "")
             {
                 MessageBox.Show("No models loaded or Message box is empty.");
             }
             else
             {
-                AppendColoredText(richTextBox1, "User: \n", Properties.Settings.Default.userNameColor);
-                AppendColoredText(richTextBox1, $"{userInputBox.Text} \n", Properties.Settings.Default.userTextColor);
+                AppendColoredText(chatHistoryOutput, "User: \n", Properties.Settings.Default.userNameColor);
+                AppendColoredText(chatHistoryOutput, $"{userInputBox.Text} \n", Properties.Settings.Default.userTextColor);
                 
+                if (systemMessageCheckBox.Checked)
+                {
+                    UpdateSystemMessageText();
+                }
+                conversationHistory.Add(new Message { role = "system", content = systemMessageText });
                 conversationHistory.Add(new Message { role = "user", content = userInputBox.Text });
+                
                 string res = await SendToLlama();
-                AppendColoredText(richTextBox1, "Bot: \n", Properties.Settings.Default.botNameColor);
-                AppendColoredText(richTextBox1, $"{res} \n", Properties.Settings.Default.botTextColor);
+                AppendColoredText(chatHistoryOutput, "Bot: \n", Properties.Settings.Default.botNameColor);
+                AppendColoredText(chatHistoryOutput, $"{res} \n", Properties.Settings.Default.botTextColor);
                 userInputBox.Text = "";
                 
+            }
+        }
+
+        public static void UpdateSystemMessageText()
+        {
+            if(systemMessageText != Properties.Settings.Default.systemMessageText)
+            {
+                systemMessageText = Properties.Settings.Default.systemMessageText;
             }
         }
 
@@ -154,7 +175,6 @@ namespace ChatWithLlama
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            
             
             if (modelConfigurations == null || modelConfigurations.IsDisposed)
             {
@@ -200,9 +220,72 @@ namespace ChatWithLlama
 
         }
 
+        private void UpdateChatHistoryFont()
+        {
+            chatHistoryOutput.Font = Properties.Settings.Default.chatHistoryFont;
+        }
+
         private void userInputBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if(systemMessageCheckBox.Checked)
+            {
+                UpdateSystemMessageText();
+            }
+            else
+            {
+                systemMessageText = "";
+            }
+        }
+
+        private void chatSettingsButton_Click(object sender, EventArgs e)
+        {
+            if (chatSettingsPanel.Visible)
+            {
+                chatSettingsPanel.Visible = false;
+            }
+            else
+            {
+                chatSettingsPanel.Visible = true;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            if (smf == null || smf.IsDisposed)
+            {
+                smf = new SystemMessageForm();
+
+                smf.Show();
+                smf.Location = new Point(this.Location.X, this.Location.Y + this.Size.Height);
+            }
+            else
+            {
+                smf.Dispose();
+            }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chatHistoryContMenuFont_Click(object sender, EventArgs e)
+        {
+            FontDialog fontDialog = new FontDialog();
+            if(fontDialog.ShowDialog() == DialogResult.OK)
+            {
+                chatHistoryOutput.Font = fontDialog.Font;
+            }
         }
     }
 
