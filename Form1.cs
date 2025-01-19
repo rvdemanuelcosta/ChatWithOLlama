@@ -287,6 +287,16 @@ namespace ChatWithLlama
                 chatHistoryOutput.Font = fontDialog.Font;
             }
         }
+
+        private void clearChatButton_Click(object sender, EventArgs e)
+        {
+            ClearChat();
+        }
+        private void ClearChat()
+        {
+            chatHistoryOutput.Text = "";
+            conversationHistory.Clear();
+        }
     }
 
     public class ChatRequest

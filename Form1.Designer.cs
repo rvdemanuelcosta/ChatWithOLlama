@@ -44,6 +44,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.systemMessageModifyButton = new System.Windows.Forms.Button();
             this.chatSettingsButton = new System.Windows.Forms.Button();
+            this.clearChatButton = new System.Windows.Forms.Button();
             this.chatHistoryContextMenu.SuspendLayout();
             this.chatSettingsPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -79,7 +80,7 @@
             this.chatHistoryOutput.BackColor = System.Drawing.Color.WhiteSmoke;
             this.chatHistoryOutput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.chatHistoryOutput.ContextMenuStrip = this.chatHistoryContextMenu;
-            this.chatHistoryOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chatHistoryOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chatHistoryOutput.Location = new System.Drawing.Point(12, 43);
             this.chatHistoryOutput.Name = "chatHistoryOutput";
             this.chatHistoryOutput.ReadOnly = true;
@@ -207,13 +208,24 @@
             this.chatSettingsButton.UseVisualStyleBackColor = true;
             this.chatSettingsButton.Click += new System.EventHandler(this.chatSettingsButton_Click);
             // 
+            // clearChatButton
+            // 
+            this.clearChatButton.Location = new System.Drawing.Point(260, 269);
+            this.clearChatButton.Name = "clearChatButton";
+            this.clearChatButton.Size = new System.Drawing.Size(75, 23);
+            this.clearChatButton.TabIndex = 12;
+            this.clearChatButton.Text = "Clear";
+            this.clearChatButton.UseVisualStyleBackColor = true;
+            this.clearChatButton.Click += new System.EventHandler(this.clearChatButton_Click);
+            // 
             // MainForm
             // 
             this.AcceptButton = this.userSendButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(383, 350);
+            this.Controls.Add(this.clearChatButton);
             this.Controls.Add(this.chatSettingsButton);
             this.Controls.Add(this.chatSettingsPanel);
             this.Controls.Add(this.userInputBox);
@@ -255,6 +267,7 @@
         private System.Windows.Forms.Button systemMessageModifyButton;
         private System.Windows.Forms.ContextMenuStrip chatHistoryContextMenu;
         private System.Windows.Forms.ToolStripMenuItem chatHistoryContMenuFont;
+        private System.Windows.Forms.Button clearChatButton;
     }
 }
 
