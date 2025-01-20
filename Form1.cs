@@ -326,6 +326,9 @@ namespace ChatWithLlama
             if(fontDialog.ShowDialog() == DialogResult.OK)
             {
                 chatHistoryOutput.Font = fontDialog.Font;
+
+                Properties.Settings.Default.chatHistoryFont = fontDialog.Font;
+                Properties.Settings.Default.Save();
             }
         }
 
