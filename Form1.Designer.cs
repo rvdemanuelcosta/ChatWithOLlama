@@ -47,13 +47,16 @@
             this.chatSettingsButton = new System.Windows.Forms.Button();
             this.clearChatButton = new System.Windows.Forms.Button();
             this.windowTitlePanel = new System.Windows.Forms.Panel();
-            this.mainFormClosebutton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.formTitleLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.mainFormClosebutton = new System.Windows.Forms.Button();
+            this.chatImportButton = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.chatHistoryContextMenu.SuspendLayout();
             this.chatSettingsPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.windowTitlePanel.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // userSendButton
@@ -176,13 +179,13 @@
             // chatSettingsPanel
             // 
             this.chatSettingsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.chatSettingsPanel.Controls.Add(this.chatExportButton);
+            this.chatSettingsPanel.Controls.Add(this.groupBox2);
             this.chatSettingsPanel.Controls.Add(this.groupBox1);
             this.chatSettingsPanel.Controls.Add(this.lockChatCheckBox);
             this.chatSettingsPanel.Controls.Add(this.topMostCheckBox);
-            this.chatSettingsPanel.Location = new System.Drawing.Point(206, 113);
+            this.chatSettingsPanel.Location = new System.Drawing.Point(206, 97);
             this.chatSettingsPanel.Name = "chatSettingsPanel";
-            this.chatSettingsPanel.Size = new System.Drawing.Size(165, 184);
+            this.chatSettingsPanel.Size = new System.Drawing.Size(165, 200);
             this.chatSettingsPanel.TabIndex = 10;
             this.chatSettingsPanel.Visible = false;
             // 
@@ -190,11 +193,11 @@
             // 
             this.chatExportButton.BackColor = System.Drawing.Color.DarkGray;
             this.chatExportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chatExportButton.Location = new System.Drawing.Point(17, 142);
+            this.chatExportButton.Location = new System.Drawing.Point(9, 19);
             this.chatExportButton.Name = "chatExportButton";
-            this.chatExportButton.Size = new System.Drawing.Size(111, 23);
+            this.chatExportButton.Size = new System.Drawing.Size(50, 23);
             this.chatExportButton.TabIndex = 12;
-            this.chatExportButton.Text = "Export Chat as Json";
+            this.chatExportButton.Text = "Export";
             this.chatExportButton.UseVisualStyleBackColor = false;
             this.chatExportButton.Click += new System.EventHandler(this.chatExportButton_Click);
             // 
@@ -257,17 +260,15 @@
             this.windowTitlePanel.Size = new System.Drawing.Size(383, 40);
             this.windowTitlePanel.TabIndex = 13;
             // 
-            // mainFormClosebutton
+            // formTitleLabel
             // 
-            this.mainFormClosebutton.BackColor = System.Drawing.Color.Silver;
-            this.mainFormClosebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.mainFormClosebutton.Location = new System.Drawing.Point(334, 9);
-            this.mainFormClosebutton.Name = "mainFormClosebutton";
-            this.mainFormClosebutton.Size = new System.Drawing.Size(42, 23);
-            this.mainFormClosebutton.TabIndex = 0;
-            this.mainFormClosebutton.Text = "X";
-            this.mainFormClosebutton.UseVisualStyleBackColor = false;
-            this.mainFormClosebutton.Click += new System.EventHandler(this.mainFormCloseButton_Click_3);
+            this.formTitleLabel.AutoSize = true;
+            this.formTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.formTitleLabel.Location = new System.Drawing.Point(12, 14);
+            this.formTitleLabel.Name = "formTitleLabel";
+            this.formTitleLabel.Size = new System.Drawing.Size(46, 18);
+            this.formTitleLabel.TabIndex = 2;
+            this.formTitleLabel.Text = "label1";
             // 
             // button1
             // 
@@ -282,15 +283,40 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_3);
             // 
-            // formTitleLabel
+            // mainFormClosebutton
             // 
-            this.formTitleLabel.AutoSize = true;
-            this.formTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.formTitleLabel.Location = new System.Drawing.Point(12, 14);
-            this.formTitleLabel.Name = "formTitleLabel";
-            this.formTitleLabel.Size = new System.Drawing.Size(46, 18);
-            this.formTitleLabel.TabIndex = 2;
-            this.formTitleLabel.Text = "label1";
+            this.mainFormClosebutton.BackColor = System.Drawing.Color.Silver;
+            this.mainFormClosebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mainFormClosebutton.Location = new System.Drawing.Point(334, 9);
+            this.mainFormClosebutton.Name = "mainFormClosebutton";
+            this.mainFormClosebutton.Size = new System.Drawing.Size(42, 23);
+            this.mainFormClosebutton.TabIndex = 0;
+            this.mainFormClosebutton.Text = "X";
+            this.mainFormClosebutton.UseVisualStyleBackColor = false;
+            this.mainFormClosebutton.Click += new System.EventHandler(this.mainFormCloseButton_Click_3);
+            // 
+            // chatImportButton
+            // 
+            this.chatImportButton.BackColor = System.Drawing.Color.DarkGray;
+            this.chatImportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chatImportButton.Location = new System.Drawing.Point(70, 19);
+            this.chatImportButton.Name = "chatImportButton";
+            this.chatImportButton.Size = new System.Drawing.Size(50, 23);
+            this.chatImportButton.TabIndex = 13;
+            this.chatImportButton.Text = "Import";
+            this.chatImportButton.UseVisualStyleBackColor = false;
+            this.chatImportButton.Click += new System.EventHandler(this.chatImportButton_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.chatImportButton);
+            this.groupBox2.Controls.Add(this.chatExportButton);
+            this.groupBox2.Location = new System.Drawing.Point(3, 128);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(161, 53);
+            this.groupBox2.TabIndex = 14;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Import/Export chat";
             // 
             // MainForm
             // 
@@ -322,6 +348,7 @@
             this.groupBox1.PerformLayout();
             this.windowTitlePanel.ResumeLayout(false);
             this.windowTitlePanel.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -350,6 +377,8 @@
         private System.Windows.Forms.Button mainFormClosebutton;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label formTitleLabel;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button chatImportButton;
     }
 }
 
