@@ -137,7 +137,6 @@ namespace ChatWithLlama
         private void button1_Click(object sender, EventArgs e)
         {
             LoadModels();
-            colorDialog1.ShowDialog();
         }
 
         private void stopModelButton_Click(object sender, EventArgs e)

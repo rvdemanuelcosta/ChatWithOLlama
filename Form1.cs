@@ -66,7 +66,6 @@ namespace ChatWithLlama
             formTitleLabel.Text = this.Text;
             chatSizeComboBox.SelectedItem = Properties.Settings.Default.chatSizeName;
             ChangeChatSize(Properties.Settings.Default.chatSizeName);
-            MessageBox.Show(Properties.Settings.Default.chatSizeName);
         }
 
         private void WindowTitlePanel_MouseMove(object sender, MouseEventArgs e)
