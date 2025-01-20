@@ -93,7 +93,7 @@ namespace ChatWithLlama.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Segoe Script, 14.25pt")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Arial, 14.25pt")]
         public global::System.Drawing.Font chatHistoryFont {
             get {
                 return ((global::System.Drawing.Font)(this["chatHistoryFont"]));
