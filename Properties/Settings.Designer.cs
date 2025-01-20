@@ -102,5 +102,17 @@ namespace ChatWithLlama.Properties {
                 this["chatHistoryFont"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string activeModel {
+            get {
+                return ((string)(this["activeModel"]));
+            }
+            set {
+                this["activeModel"] = value;
+            }
+        }
     }
 }

@@ -41,8 +41,20 @@ namespace ChatWithLlama
             updateLocationTimer.Tick += UpdateLocation;
             updateLocationTimer.Start();
             loadedModelTextLabel = this.activeModelTextLabel;
-            loadedModelTextLabel.Text = "None";
-            loadedModelTextLabel.ForeColor = Color.Red;
+
+            if(Properties.Settings.Default.activeModel != null && Properties.Settings.Default.activeModel != "")
+            {
+                modelName = Properties.Settings.Default.activeModel;
+                loadedModelTextLabel.Text = modelName;
+                loadedModelTextLabel.ForeColor = Color.Green;
+            }
+            else
+            {
+                modelName = "";
+                loadedModelTextLabel.Text = "None";
+                loadedModelTextLabel.ForeColor = Color.Red;
+            }
+            
             if (systemMessageCheckBox.Checked)
             {
                 UpdateSystemMessageText();
