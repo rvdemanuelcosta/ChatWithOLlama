@@ -137,7 +137,6 @@ namespace ChatWithLlama
         private void button1_Click(object sender, EventArgs e)
         {
             LoadModels();
-            colorDialog1.ShowDialog();
         }
 
         private void stopModelButton_Click(object sender, EventArgs e)
@@ -224,6 +223,7 @@ namespace ChatWithLlama
             Properties.Settings.Default.userTextColor = userTextColor;
             Properties.Settings.Default.botNameColor = botNameColor;
             Properties.Settings.Default.botTextColor = botTextColor;
+            Properties.Settings.Default.Save();
             LoadColors();
             MessageBox.Show("Some settings require restart to take effect.");
         }
