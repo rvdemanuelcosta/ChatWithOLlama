@@ -25,6 +25,7 @@ namespace ChatWithLlama
         public static string systemMessageText = "";
         SystemMessageForm smf;
         public static Label loadedModelTextLabel;
+        private Point mouseDownPoint;
         
         public static string modelName { get; set; }
         
@@ -47,8 +48,26 @@ namespace ChatWithLlama
                 UpdateSystemMessageText();
             }
             UpdateChatHistoryFont();
+            windowTitlePanel.MouseDown += WindowTitlePanel_MouseDown;
+            windowTitlePanel.MouseMove += WindowTitlePanel_MouseMove;
+            formTitleLabel.Text = this.Text;
         }
-        
+
+        private void WindowTitlePanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                this.Location = new Point(
+                    this.Location.X + (e.X - mouseDownPoint.X),
+                    this.Location.Y + (e.Y - mouseDownPoint.Y));
+            }
+        }
+
+        private void WindowTitlePanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDownPoint = new Point(e.X, e.Y);
+        }
+
         private void ExportChatAsJson()
         {
             string jsonstring = JsonConvert.SerializeObject(conversationHistory, Formatting.Indented);
@@ -225,11 +244,15 @@ namespace ChatWithLlama
             
             if (lockChatCheckBox.Checked)
             {
-                this.FormBorderStyle = FormBorderStyle.None;
+                //this.FormBorderStyle = FormBorderStyle.None;
+                windowTitlePanel.MouseDown -= WindowTitlePanel_MouseDown;
+                windowTitlePanel.MouseMove -= WindowTitlePanel_MouseMove;
             }
             else
             {
-                this.FormBorderStyle = FormBorderStyle.FixedSingle;
+                //this.FormBorderStyle = FormBorderStyle.FixedSingle;
+                windowTitlePanel.MouseDown += WindowTitlePanel_MouseDown;
+                windowTitlePanel.MouseMove += WindowTitlePanel_MouseMove;
             }
         }
 
@@ -322,6 +345,16 @@ namespace ChatWithLlama
         private void chatExportButton_Click(object sender, EventArgs e)
         {
             ExportChatAsJson();
+        }
+
+        private void mainFormCloseButton_Click_3(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click_3(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 
