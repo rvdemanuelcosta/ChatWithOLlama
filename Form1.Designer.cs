@@ -122,6 +122,8 @@
             // 
             // settingsButton
             // 
+            this.settingsButton.BackColor = System.Drawing.Color.DarkGray;
+            this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.settingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settingsButton.Location = new System.Drawing.Point(12, 46);
             this.settingsButton.Name = "settingsButton";
@@ -129,7 +131,7 @@
             this.settingsButton.TabIndex = 5;
             this.settingsButton.Text = "*";
             this.settingsButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.settingsButton.UseVisualStyleBackColor = true;
+            this.settingsButton.UseVisualStyleBackColor = false;
             this.settingsButton.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // activeModelLabel
@@ -186,12 +188,14 @@
             // 
             // chatExportButton
             // 
+            this.chatExportButton.BackColor = System.Drawing.Color.DarkGray;
+            this.chatExportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chatExportButton.Location = new System.Drawing.Point(17, 142);
             this.chatExportButton.Name = "chatExportButton";
             this.chatExportButton.Size = new System.Drawing.Size(111, 23);
             this.chatExportButton.TabIndex = 12;
             this.chatExportButton.Text = "Export Chat as Json";
-            this.chatExportButton.UseVisualStyleBackColor = true;
+            this.chatExportButton.UseVisualStyleBackColor = false;
             this.chatExportButton.Click += new System.EventHandler(this.chatExportButton_Click);
             // 
             // groupBox1
@@ -207,32 +211,38 @@
             // 
             // systemMessageModifyButton
             // 
+            this.systemMessageModifyButton.BackColor = System.Drawing.Color.DarkGray;
+            this.systemMessageModifyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.systemMessageModifyButton.Location = new System.Drawing.Point(93, 44);
             this.systemMessageModifyButton.Name = "systemMessageModifyButton";
             this.systemMessageModifyButton.Size = new System.Drawing.Size(60, 23);
             this.systemMessageModifyButton.TabIndex = 10;
             this.systemMessageModifyButton.Text = "Modify";
-            this.systemMessageModifyButton.UseVisualStyleBackColor = true;
+            this.systemMessageModifyButton.UseVisualStyleBackColor = false;
             this.systemMessageModifyButton.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // chatSettingsButton
             // 
+            this.chatSettingsButton.BackColor = System.Drawing.Color.DarkGray;
+            this.chatSettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chatSettingsButton.Location = new System.Drawing.Point(341, 303);
             this.chatSettingsButton.Name = "chatSettingsButton";
             this.chatSettingsButton.Size = new System.Drawing.Size(30, 23);
             this.chatSettingsButton.TabIndex = 11;
             this.chatSettingsButton.Text = "| | |";
-            this.chatSettingsButton.UseVisualStyleBackColor = true;
+            this.chatSettingsButton.UseVisualStyleBackColor = false;
             this.chatSettingsButton.Click += new System.EventHandler(this.chatSettingsButton_Click);
             // 
             // clearChatButton
             // 
+            this.clearChatButton.BackColor = System.Drawing.Color.DarkGray;
+            this.clearChatButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearChatButton.Location = new System.Drawing.Point(260, 303);
             this.clearChatButton.Name = "clearChatButton";
             this.clearChatButton.Size = new System.Drawing.Size(75, 23);
             this.clearChatButton.TabIndex = 12;
             this.clearChatButton.Text = "Clear";
-            this.clearChatButton.UseVisualStyleBackColor = true;
+            this.clearChatButton.UseVisualStyleBackColor = false;
             this.clearChatButton.Click += new System.EventHandler(this.clearChatButton_Click);
             // 
             // windowTitlePanel

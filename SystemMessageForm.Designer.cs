@@ -52,12 +52,14 @@
             // systemMessageSaveButton
             // 
             this.systemMessageSaveButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.systemMessageSaveButton.BackColor = System.Drawing.Color.DarkGray;
+            this.systemMessageSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.systemMessageSaveButton.Location = new System.Drawing.Point(152, 221);
             this.systemMessageSaveButton.Name = "systemMessageSaveButton";
             this.systemMessageSaveButton.Size = new System.Drawing.Size(93, 23);
             this.systemMessageSaveButton.TabIndex = 1;
             this.systemMessageSaveButton.Text = "Save";
-            this.systemMessageSaveButton.UseVisualStyleBackColor = true;
+            this.systemMessageSaveButton.UseVisualStyleBackColor = false;
             this.systemMessageSaveButton.Click += new System.EventHandler(this.systemMessageSaveButton_Click);
             // 
             // formTitlePanel
