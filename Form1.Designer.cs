@@ -86,7 +86,7 @@
             this.chatHistoryOutput.BackColor = System.Drawing.SystemColors.Control;
             this.chatHistoryOutput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.chatHistoryOutput.ContextMenuStrip = this.chatHistoryContextMenu;
-            this.chatHistoryOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chatHistoryOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chatHistoryOutput.Location = new System.Drawing.Point(12, 77);
             this.chatHistoryOutput.Name = "chatHistoryOutput";
             this.chatHistoryOutput.ReadOnly = true;
