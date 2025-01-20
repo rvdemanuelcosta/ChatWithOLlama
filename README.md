@@ -1,7 +1,7 @@
 # ChatWithLlama
 # Ollama Model Chat C# Application
 
-This is a C# Windows Forms application for windows that allows users to chat with Ollama's models localy. The application currently supports text-only models, vision functionality is not supported.
+This is a C# Windows Forms application that allows users to run and chat with Ollama's models. The application currently supports text-only models, vision functionality is not supported.
 
 ## Features
 
@@ -16,8 +16,6 @@ This is a C# Windows Forms application for windows that allows users to chat wit
 	it will erase the chat.</s>
 * <s>**Chat history font color**: When the user right click on the chat to change the font, text color will be black.</s>
 * When the user press the run model button it creates a process and it acumulates for each click on that button.
-* Unable to resize the windows by draging the edges.
-* Unable to move windows if the user clicks on the top of the window title labels.
 
 ## Getting Started
 

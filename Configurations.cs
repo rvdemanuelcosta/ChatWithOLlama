@@ -223,7 +223,6 @@ namespace ChatWithLlama
             Properties.Settings.Default.userTextColor = userTextColor;
             Properties.Settings.Default.botNameColor = botNameColor;
             Properties.Settings.Default.botTextColor = botTextColor;
-            Properties.Settings.Default.Save();
             LoadColors();
             MessageBox.Show("Some settings require restart to take effect.");
         }
