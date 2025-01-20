@@ -22,7 +22,6 @@ namespace ChatWithLlama
         Process stopModel;
         ProcessStartInfo pstartInfo;
         Process runModelprocess;
-        Point windowPanelPoint;
         public Configurations()
         {
             InitializeComponent();
@@ -37,26 +36,9 @@ namespace ChatWithLlama
             attachWindowsCheckBox.Checked = Properties.Settings.Default.attachedSettingsWindow;
             LoadColors();
             Properties.Settings.Default.Reload();
-            formTitlePanel.MouseDown += FormTitlePanel_MouseDown;
-            formTitlePanel.MouseMove += FormTitlePanel_MouseMove;
-            formTitleLabel.Text = this.Text;
         }
 
-        private void FormTitlePanel_MouseMove(object sender, MouseEventArgs e)
-        {
-            if(e.Button == MouseButtons.Left)
-            {
-                this.Location = new Point(
-                    this.Location.X + (e.X - windowPanelPoint.X),
-                    this.Location.Y + (e.Y - windowPanelPoint.Y));
-            }
-        }
-
-        private void FormTitlePanel_MouseDown(object sender, MouseEventArgs e)
-        {
-            windowPanelPoint = new Point(e.X, e.Y);
-        }
-
+        
         private void RunModel()
         {
             if (runModelprocess != null && !runModelprocess.HasExited)
@@ -275,16 +257,6 @@ namespace ChatWithLlama
                 Properties.Settings.Default.attachedSettingsWindow = false;
             }
             
-        }
-
-        private void formMinimizeButton_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void formCloseButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

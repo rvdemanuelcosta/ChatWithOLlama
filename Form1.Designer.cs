@@ -41,26 +41,21 @@
             this.lockChatCheckBox = new System.Windows.Forms.CheckBox();
             this.systemMessageCheckBox = new System.Windows.Forms.CheckBox();
             this.chatSettingsPanel = new System.Windows.Forms.Panel();
-            this.chatExportButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.systemMessageModifyButton = new System.Windows.Forms.Button();
             this.chatSettingsButton = new System.Windows.Forms.Button();
             this.clearChatButton = new System.Windows.Forms.Button();
-            this.windowTitlePanel = new System.Windows.Forms.Panel();
-            this.mainFormClosebutton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.formTitleLabel = new System.Windows.Forms.Label();
+            this.chatExportButton = new System.Windows.Forms.Button();
             this.chatHistoryContextMenu.SuspendLayout();
             this.chatSettingsPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.windowTitlePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // userSendButton
             // 
             this.userSendButton.BackColor = System.Drawing.Color.White;
             this.userSendButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.userSendButton.Location = new System.Drawing.Point(296, 340);
+            this.userSendButton.Location = new System.Drawing.Point(296, 306);
             this.userSendButton.Name = "userSendButton";
             this.userSendButton.Size = new System.Drawing.Size(75, 23);
             this.userSendButton.TabIndex = 0;
@@ -74,7 +69,7 @@
             this.userInputBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.userInputBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userInputBox.ForeColor = System.Drawing.Color.Black;
-            this.userInputBox.Location = new System.Drawing.Point(12, 332);
+            this.userInputBox.Location = new System.Drawing.Point(12, 298);
             this.userInputBox.Multiline = true;
             this.userInputBox.Name = "userInputBox";
             this.userInputBox.Size = new System.Drawing.Size(359, 40);
@@ -83,11 +78,11 @@
             // 
             // chatHistoryOutput
             // 
-            this.chatHistoryOutput.BackColor = System.Drawing.SystemColors.Control;
+            this.chatHistoryOutput.BackColor = System.Drawing.Color.WhiteSmoke;
             this.chatHistoryOutput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.chatHistoryOutput.ContextMenuStrip = this.chatHistoryContextMenu;
             this.chatHistoryOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chatHistoryOutput.Location = new System.Drawing.Point(12, 77);
+            this.chatHistoryOutput.Location = new System.Drawing.Point(12, 43);
             this.chatHistoryOutput.Name = "chatHistoryOutput";
             this.chatHistoryOutput.ReadOnly = true;
             this.chatHistoryOutput.Size = new System.Drawing.Size(359, 220);
@@ -123,7 +118,7 @@
             // settingsButton
             // 
             this.settingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settingsButton.Location = new System.Drawing.Point(12, 46);
+            this.settingsButton.Location = new System.Drawing.Point(12, 12);
             this.settingsButton.Name = "settingsButton";
             this.settingsButton.Size = new System.Drawing.Size(27, 25);
             this.settingsButton.TabIndex = 5;
@@ -135,7 +130,7 @@
             // activeModelLabel
             // 
             this.activeModelLabel.AutoSize = true;
-            this.activeModelLabel.Location = new System.Drawing.Point(46, 57);
+            this.activeModelLabel.Location = new System.Drawing.Point(46, 23);
             this.activeModelLabel.Name = "activeModelLabel";
             this.activeModelLabel.Size = new System.Drawing.Size(72, 13);
             this.activeModelLabel.TabIndex = 6;
@@ -144,7 +139,7 @@
             // activeModelTextLabel
             // 
             this.activeModelTextLabel.AutoSize = true;
-            this.activeModelTextLabel.Location = new System.Drawing.Point(124, 57);
+            this.activeModelTextLabel.Location = new System.Drawing.Point(124, 23);
             this.activeModelTextLabel.Name = "activeModelTextLabel";
             this.activeModelTextLabel.Size = new System.Drawing.Size(0, 13);
             this.activeModelTextLabel.TabIndex = 7;
@@ -178,21 +173,11 @@
             this.chatSettingsPanel.Controls.Add(this.groupBox1);
             this.chatSettingsPanel.Controls.Add(this.lockChatCheckBox);
             this.chatSettingsPanel.Controls.Add(this.topMostCheckBox);
-            this.chatSettingsPanel.Location = new System.Drawing.Point(206, 113);
+            this.chatSettingsPanel.Location = new System.Drawing.Point(206, 79);
             this.chatSettingsPanel.Name = "chatSettingsPanel";
             this.chatSettingsPanel.Size = new System.Drawing.Size(165, 184);
             this.chatSettingsPanel.TabIndex = 10;
             this.chatSettingsPanel.Visible = false;
-            // 
-            // chatExportButton
-            // 
-            this.chatExportButton.Location = new System.Drawing.Point(17, 142);
-            this.chatExportButton.Name = "chatExportButton";
-            this.chatExportButton.Size = new System.Drawing.Size(111, 23);
-            this.chatExportButton.TabIndex = 12;
-            this.chatExportButton.Text = "Export Chat as Json";
-            this.chatExportButton.UseVisualStyleBackColor = true;
-            this.chatExportButton.Click += new System.EventHandler(this.chatExportButton_Click);
             // 
             // groupBox1
             // 
@@ -217,7 +202,7 @@
             // 
             // chatSettingsButton
             // 
-            this.chatSettingsButton.Location = new System.Drawing.Point(341, 303);
+            this.chatSettingsButton.Location = new System.Drawing.Point(341, 269);
             this.chatSettingsButton.Name = "chatSettingsButton";
             this.chatSettingsButton.Size = new System.Drawing.Size(30, 23);
             this.chatSettingsButton.TabIndex = 11;
@@ -227,7 +212,7 @@
             // 
             // clearChatButton
             // 
-            this.clearChatButton.Location = new System.Drawing.Point(260, 303);
+            this.clearChatButton.Location = new System.Drawing.Point(260, 269);
             this.clearChatButton.Name = "clearChatButton";
             this.clearChatButton.Size = new System.Drawing.Size(75, 23);
             this.clearChatButton.TabIndex = 12;
@@ -235,52 +220,15 @@
             this.clearChatButton.UseVisualStyleBackColor = true;
             this.clearChatButton.Click += new System.EventHandler(this.clearChatButton_Click);
             // 
-            // windowTitlePanel
+            // chatExportButton
             // 
-            this.windowTitlePanel.BackColor = System.Drawing.Color.DarkGray;
-            this.windowTitlePanel.Controls.Add(this.formTitleLabel);
-            this.windowTitlePanel.Controls.Add(this.button1);
-            this.windowTitlePanel.Controls.Add(this.mainFormClosebutton);
-            this.windowTitlePanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.windowTitlePanel.Location = new System.Drawing.Point(0, 0);
-            this.windowTitlePanel.Name = "windowTitlePanel";
-            this.windowTitlePanel.Size = new System.Drawing.Size(383, 40);
-            this.windowTitlePanel.TabIndex = 13;
-            // 
-            // mainFormClosebutton
-            // 
-            this.mainFormClosebutton.BackColor = System.Drawing.Color.Silver;
-            this.mainFormClosebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.mainFormClosebutton.Location = new System.Drawing.Point(334, 9);
-            this.mainFormClosebutton.Name = "mainFormClosebutton";
-            this.mainFormClosebutton.Size = new System.Drawing.Size(42, 23);
-            this.mainFormClosebutton.TabIndex = 0;
-            this.mainFormClosebutton.Text = "X";
-            this.mainFormClosebutton.UseVisualStyleBackColor = false;
-            this.mainFormClosebutton.Click += new System.EventHandler(this.mainFormCloseButton_Click_3);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Silver;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(296, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "----";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_3);
-            // 
-            // formTitleLabel
-            // 
-            this.formTitleLabel.AutoSize = true;
-            this.formTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.formTitleLabel.Location = new System.Drawing.Point(12, 14);
-            this.formTitleLabel.Name = "formTitleLabel";
-            this.formTitleLabel.Size = new System.Drawing.Size(46, 18);
-            this.formTitleLabel.TabIndex = 2;
-            this.formTitleLabel.Text = "label1";
+            this.chatExportButton.Location = new System.Drawing.Point(17, 142);
+            this.chatExportButton.Name = "chatExportButton";
+            this.chatExportButton.Size = new System.Drawing.Size(111, 23);
+            this.chatExportButton.TabIndex = 12;
+            this.chatExportButton.Text = "Export Chat as Json";
+            this.chatExportButton.UseVisualStyleBackColor = true;
+            this.chatExportButton.Click += new System.EventHandler(this.chatExportButton_Click);
             // 
             // MainForm
             // 
@@ -288,8 +236,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(383, 385);
-            this.Controls.Add(this.windowTitlePanel);
+            this.ClientSize = new System.Drawing.Size(383, 350);
             this.Controls.Add(this.clearChatButton);
             this.Controls.Add(this.chatSettingsButton);
             this.Controls.Add(this.chatSettingsPanel);
@@ -299,7 +246,7 @@
             this.Controls.Add(this.settingsButton);
             this.Controls.Add(this.userSendButton);
             this.Controls.Add(this.chatHistoryOutput);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Chat With Ollama";
@@ -310,8 +257,6 @@
             this.chatSettingsPanel.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.windowTitlePanel.ResumeLayout(false);
-            this.windowTitlePanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,10 +281,6 @@
         private System.Windows.Forms.ToolStripMenuItem chatHistoryContMenuFont;
         private System.Windows.Forms.Button clearChatButton;
         private System.Windows.Forms.Button chatExportButton;
-        private System.Windows.Forms.Panel windowTitlePanel;
-        private System.Windows.Forms.Button mainFormClosebutton;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label formTitleLabel;
     }
 }
 
