@@ -41,6 +41,8 @@
             this.lockChatCheckBox = new System.Windows.Forms.CheckBox();
             this.systemMessageCheckBox = new System.Windows.Forms.CheckBox();
             this.chatSettingsPanel = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chatImportButton = new System.Windows.Forms.Button();
             this.chatExportButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.systemMessageModifyButton = new System.Windows.Forms.Button();
@@ -50,13 +52,11 @@
             this.formTitleLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.mainFormClosebutton = new System.Windows.Forms.Button();
-            this.chatImportButton = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.chatHistoryContextMenu.SuspendLayout();
             this.chatSettingsPanel.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.windowTitlePanel.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // userSendButton
@@ -127,12 +127,12 @@
             // 
             this.settingsButton.BackColor = System.Drawing.Color.DarkGray;
             this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.settingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settingsButton.Location = new System.Drawing.Point(12, 46);
+            this.settingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingsButton.Location = new System.Drawing.Point(45, 196);
             this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(27, 25);
+            this.settingsButton.Size = new System.Drawing.Size(111, 25);
             this.settingsButton.TabIndex = 5;
-            this.settingsButton.Text = "*";
+            this.settingsButton.Text = "Advanced Settings";
             this.settingsButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.settingsButton.UseVisualStyleBackColor = false;
             this.settingsButton.Click += new System.EventHandler(this.button1_Click_1);
@@ -140,7 +140,7 @@
             // activeModelLabel
             // 
             this.activeModelLabel.AutoSize = true;
-            this.activeModelLabel.Location = new System.Drawing.Point(46, 57);
+            this.activeModelLabel.Location = new System.Drawing.Point(12, 57);
             this.activeModelLabel.Name = "activeModelLabel";
             this.activeModelLabel.Size = new System.Drawing.Size(72, 13);
             this.activeModelLabel.TabIndex = 6;
@@ -149,7 +149,7 @@
             // activeModelTextLabel
             // 
             this.activeModelTextLabel.AutoSize = true;
-            this.activeModelTextLabel.Location = new System.Drawing.Point(124, 57);
+            this.activeModelTextLabel.Location = new System.Drawing.Point(90, 57);
             this.activeModelTextLabel.Name = "activeModelTextLabel";
             this.activeModelTextLabel.Size = new System.Drawing.Size(0, 13);
             this.activeModelTextLabel.TabIndex = 7;
@@ -183,17 +183,41 @@
             this.chatSettingsPanel.Controls.Add(this.groupBox1);
             this.chatSettingsPanel.Controls.Add(this.lockChatCheckBox);
             this.chatSettingsPanel.Controls.Add(this.topMostCheckBox);
-            this.chatSettingsPanel.Location = new System.Drawing.Point(206, 97);
+            this.chatSettingsPanel.Controls.Add(this.settingsButton);
+            this.chatSettingsPanel.Location = new System.Drawing.Point(206, 57);
             this.chatSettingsPanel.Name = "chatSettingsPanel";
-            this.chatSettingsPanel.Size = new System.Drawing.Size(165, 200);
+            this.chatSettingsPanel.Size = new System.Drawing.Size(165, 240);
             this.chatSettingsPanel.TabIndex = 10;
             this.chatSettingsPanel.Visible = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.chatImportButton);
+            this.groupBox2.Controls.Add(this.chatExportButton);
+            this.groupBox2.Location = new System.Drawing.Point(3, 128);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(161, 53);
+            this.groupBox2.TabIndex = 14;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Import/Export chat";
+            // 
+            // chatImportButton
+            // 
+            this.chatImportButton.BackColor = System.Drawing.Color.DarkGray;
+            this.chatImportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chatImportButton.Location = new System.Drawing.Point(103, 19);
+            this.chatImportButton.Name = "chatImportButton";
+            this.chatImportButton.Size = new System.Drawing.Size(50, 23);
+            this.chatImportButton.TabIndex = 13;
+            this.chatImportButton.Text = "Import";
+            this.chatImportButton.UseVisualStyleBackColor = false;
+            this.chatImportButton.Click += new System.EventHandler(this.chatImportButton_Click);
             // 
             // chatExportButton
             // 
             this.chatExportButton.BackColor = System.Drawing.Color.DarkGray;
             this.chatExportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chatExportButton.Location = new System.Drawing.Point(9, 19);
+            this.chatExportButton.Location = new System.Drawing.Point(42, 19);
             this.chatExportButton.Name = "chatExportButton";
             this.chatExportButton.Size = new System.Drawing.Size(50, 23);
             this.chatExportButton.TabIndex = 12;
@@ -295,29 +319,6 @@
             this.mainFormClosebutton.UseVisualStyleBackColor = false;
             this.mainFormClosebutton.Click += new System.EventHandler(this.mainFormCloseButton_Click_3);
             // 
-            // chatImportButton
-            // 
-            this.chatImportButton.BackColor = System.Drawing.Color.DarkGray;
-            this.chatImportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chatImportButton.Location = new System.Drawing.Point(70, 19);
-            this.chatImportButton.Name = "chatImportButton";
-            this.chatImportButton.Size = new System.Drawing.Size(50, 23);
-            this.chatImportButton.TabIndex = 13;
-            this.chatImportButton.Text = "Import";
-            this.chatImportButton.UseVisualStyleBackColor = false;
-            this.chatImportButton.Click += new System.EventHandler(this.chatImportButton_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.chatImportButton);
-            this.groupBox2.Controls.Add(this.chatExportButton);
-            this.groupBox2.Location = new System.Drawing.Point(3, 128);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(161, 53);
-            this.groupBox2.TabIndex = 14;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Import/Export chat";
-            // 
             // MainForm
             // 
             this.AcceptButton = this.userSendButton;
@@ -332,7 +333,6 @@
             this.Controls.Add(this.userInputBox);
             this.Controls.Add(this.activeModelTextLabel);
             this.Controls.Add(this.activeModelLabel);
-            this.Controls.Add(this.settingsButton);
             this.Controls.Add(this.userSendButton);
             this.Controls.Add(this.chatHistoryOutput);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -344,11 +344,11 @@
             this.chatHistoryContextMenu.ResumeLayout(false);
             this.chatSettingsPanel.ResumeLayout(false);
             this.chatSettingsPanel.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.windowTitlePanel.ResumeLayout(false);
             this.windowTitlePanel.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
