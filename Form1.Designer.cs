@@ -61,6 +61,7 @@
             // 
             // userSendButton
             // 
+            this.userSendButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.userSendButton.BackColor = System.Drawing.Color.White;
             this.userSendButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.userSendButton.Location = new System.Drawing.Point(296, 340);
@@ -73,6 +74,8 @@
             // 
             // userInputBox
             // 
+            this.userInputBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.userInputBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.userInputBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.userInputBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -86,6 +89,9 @@
             // 
             // chatHistoryOutput
             // 
+            this.chatHistoryOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.chatHistoryOutput.BackColor = System.Drawing.SystemColors.Control;
             this.chatHistoryOutput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.chatHistoryOutput.ContextMenuStrip = this.chatHistoryContextMenu;
@@ -178,6 +184,7 @@
             // 
             // chatSettingsPanel
             // 
+            this.chatSettingsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chatSettingsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.chatSettingsPanel.Controls.Add(this.groupBox2);
             this.chatSettingsPanel.Controls.Add(this.groupBox1);
@@ -250,6 +257,7 @@
             // 
             // chatSettingsButton
             // 
+            this.chatSettingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chatSettingsButton.BackColor = System.Drawing.Color.DarkGray;
             this.chatSettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chatSettingsButton.Location = new System.Drawing.Point(341, 303);
@@ -262,6 +270,7 @@
             // 
             // clearChatButton
             // 
+            this.clearChatButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.clearChatButton.BackColor = System.Drawing.Color.DarkGray;
             this.clearChatButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearChatButton.Location = new System.Drawing.Point(260, 303);
