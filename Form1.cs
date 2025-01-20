@@ -40,8 +40,20 @@ namespace ChatWithLlama
             updateLocationTimer.Tick += UpdateLocation;
             updateLocationTimer.Start();
             loadedModelTextLabel = this.activeModelTextLabel;
-            loadedModelTextLabel.Text = "None";
-            loadedModelTextLabel.ForeColor = Color.Red;
+
+            if(Properties.Settings.Default.activeModel != null && Properties.Settings.Default.activeModel != "")
+            {
+                modelName = Properties.Settings.Default.activeModel;
+                loadedModelTextLabel.Text = modelName;
+                loadedModelTextLabel.ForeColor = Color.Green;
+            }
+            else
+            {
+                modelName = "";
+                loadedModelTextLabel.Text = "None";
+                loadedModelTextLabel.ForeColor = Color.Red;
+            }
+            
             if (systemMessageCheckBox.Checked)
             {
                 UpdateSystemMessageText();
@@ -61,6 +73,30 @@ namespace ChatWithLlama
                 savePath = dialog.FileName;
                 File.WriteAllText(savePath, jsonstring);
                 MessageBox.Show($" Chat exported as {dialog.FileName}");
+            }
+        }
+
+        private void ImportChatFromJson()
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            if(dialog.ShowDialog(this) == DialogResult.OK)
+            {
+                List<Message> messages = new List<Message>();
+                string jsonstring = File.ReadAllText(dialog.FileName);
+                messages = JsonConvert.DeserializeObject<List<Message>>(jsonstring);
+                foreach (Message message in messages)
+                {
+                    conversationHistory.Add(message);
+                }
+                
+                foreach(Message message in conversationHistory)
+                {
+                    if(message.role != "system")
+                    {
+                        chatHistoryOutput.Text += $"{message.role}:\n{message.content}\n";
+                    }
+                    
+                }
             }
         }
 
@@ -164,7 +200,7 @@ namespace ChatWithLlama
                 conversationHistory.Add(new Message { role = "user", content = userInputBox.Text });
                 
                 string res = await SendToLlama();
-                AppendColoredText(chatHistoryOutput, "Bot: \n", Properties.Settings.Default.botNameColor);
+                AppendColoredText(chatHistoryOutput, "assistant: \n", Properties.Settings.Default.botNameColor);
                 AppendColoredText(chatHistoryOutput, $"{res} \n", Properties.Settings.Default.botTextColor);
                 userInputBox.Text = "";
                 
@@ -303,7 +339,6 @@ namespace ChatWithLlama
             if(fontDialog.ShowDialog() == DialogResult.OK)
             {
                 chatHistoryOutput.Font = fontDialog.Font;
-
                 Properties.Settings.Default.chatHistoryFont = fontDialog.Font;
                 Properties.Settings.Default.Save();
             }
@@ -325,6 +360,21 @@ namespace ChatWithLlama
         private void chatExportButton_Click(object sender, EventArgs e)
         {
             ExportChatAsJson();
+        }
+
+        private void mainFormCloseButton_Click_3(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click_3(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void chatImportButton_Click(object sender, EventArgs e)
+        {
+            ImportChatFromJson();
         }
     }
 

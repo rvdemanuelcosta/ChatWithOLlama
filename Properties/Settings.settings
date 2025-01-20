@@ -23,5 +23,8 @@
     <Setting Name="chatHistoryFont" Type="System.Drawing.Font" Scope="User">
       <Value Profile="(Default)">Segoe Script, 14.25pt</Value>
     </Setting>
+    <Setting Name="activeModel" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

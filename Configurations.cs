@@ -83,13 +83,18 @@ namespace ChatWithLlama
 
                     var responseBody = await response.Content.ReadAsStringAsync();
                     dynamic data = JsonConvert.DeserializeObject(responseBody);
+                    int selectedModelIndex = 0;
 
                     // add the models to the models combo box
                     for (int i = 0; i < data.models.Count; i++)
                     {
                         modelsComboBox.Items.Add(data.models[i].name);
+                        if (data.models[i].name == Properties.Settings.Default.activeModel)
+                        {
+                            selectedModelIndex = i;
+                        }
                     }
-                    modelsComboBox.SelectedIndex = 0;
+                    modelsComboBox.SelectedIndex = selectedModelIndex;
                     }
             }
             catch (HttpRequestException ex)
@@ -219,8 +224,10 @@ namespace ChatWithLlama
 
         private void saveSettingsButton_Click(object sender, EventArgs e)
         {
+            Properties.Settings.Default.activeModel = modelsComboBox.SelectedItem.ToString();
             UpdateColors(userNameColorLabel.ForeColor, userTextColorLabel.ForeColor, botNameColorLabel.ForeColor, botTextColorLabel.ForeColor);
             Properties.Settings.Default.Save();
+            MessageBox.Show(Properties.Settings.Default.activeModel);
         }
 
         private void userTextColorLabel_Click_1(object sender, EventArgs e)
