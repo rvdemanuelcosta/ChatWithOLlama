@@ -112,7 +112,18 @@ namespace ChatWithLlama
                 {
                     if(message.role != "system")
                     {
-                        chatHistoryOutput.Text += $"{message.role}:\n{message.content}\n";
+                        //chatHistoryOutput.Text += $"{message.role}:\n{message.content}\n";
+                        
+                    }
+                    if(message.role == "user")
+                    {
+                        AppendColoredText(chatHistoryOutput, $"{message.role}\n", Properties.Settings.Default.userNameColor);
+                        AppendColoredText(chatHistoryOutput, $"{message.content}\n", Properties.Settings.Default.userTextColor);
+                    }
+                    if(message.role == "assistant")
+                    {
+                        AppendColoredText(chatHistoryOutput, $"{message.role}\n", Properties.Settings.Default.botNameColor);
+                        AppendColoredText(chatHistoryOutput, $"{message.content}\n", Properties.Settings.Default.botTextColor);
                     }
                     
                 }
@@ -208,7 +219,7 @@ namespace ChatWithLlama
             }
             else
             {
-                AppendColoredText(chatHistoryOutput, "User: \n", Properties.Settings.Default.userNameColor);
+                AppendColoredText(chatHistoryOutput, "user: \n", Properties.Settings.Default.userNameColor);
                 AppendColoredText(chatHistoryOutput, $"{userInputBox.Text} \n", Properties.Settings.Default.userTextColor);
                 
                 if (systemMessageCheckBox.Checked)
