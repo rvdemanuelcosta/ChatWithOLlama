@@ -15,6 +15,7 @@ using System.Dynamic;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using static System.Net.Mime.MediaTypeNames;
+using System.Security.Policy;
 
 namespace ChatWithLlama
 {
@@ -63,6 +64,9 @@ namespace ChatWithLlama
             windowTitlePanel.MouseDown += WindowTitlePanel_MouseDown;
             windowTitlePanel.MouseMove += WindowTitlePanel_MouseMove;
             formTitleLabel.Text = this.Text;
+            chatSizeComboBox.SelectedItem = Properties.Settings.Default.chatSizeName;
+            ChangeChatSize(Properties.Settings.Default.chatSizeName);
+            MessageBox.Show(Properties.Settings.Default.chatSizeName);
         }
 
         private void WindowTitlePanel_MouseMove(object sender, MouseEventArgs e)
@@ -409,6 +413,41 @@ namespace ChatWithLlama
         private void chatImportButton_Click(object sender, EventArgs e)
         {
             ImportChatFromJson();
+        }
+
+        private void chatSizeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ChangeChatSize(chatSizeComboBox.SelectedItem.ToString());
+        }
+
+        private void ChangeChatSize(string size)
+        {
+            if(Properties.Settings.Default.chatSizeName != size)
+            {
+                Properties.Settings.Default.chatSizeName = size;
+                Properties.Settings.Default.Save();
+                
+            }
+            switch (size)
+            {
+                case "Small": this.Size = new Size(352, 462); break;
+                case "Medium": this.Size = new Size(640, 462); break;
+                case "Big": this.Size = new Size(967, 538); break;
+            }
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
         }
     }
 

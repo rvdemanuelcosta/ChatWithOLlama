@@ -114,5 +114,17 @@ namespace ChatWithLlama.Properties {
                 this["activeModel"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Small")]
+        public string chatSizeName {
+            get {
+                return ((string)(this["chatSizeName"]));
+            }
+            set {
+                this["chatSizeName"] = value;
+            }
+        }
     }
 }

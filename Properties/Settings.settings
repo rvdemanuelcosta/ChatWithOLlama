@@ -26,5 +26,8 @@
     <Setting Name="activeModel" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="chatSizeName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Small</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
