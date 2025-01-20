@@ -45,6 +45,7 @@
             this.systemMessageModifyButton = new System.Windows.Forms.Button();
             this.chatSettingsButton = new System.Windows.Forms.Button();
             this.clearChatButton = new System.Windows.Forms.Button();
+            this.chatExportButton = new System.Windows.Forms.Button();
             this.chatHistoryContextMenu.SuspendLayout();
             this.chatSettingsPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -168,12 +169,13 @@
             // chatSettingsPanel
             // 
             this.chatSettingsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.chatSettingsPanel.Controls.Add(this.chatExportButton);
             this.chatSettingsPanel.Controls.Add(this.groupBox1);
             this.chatSettingsPanel.Controls.Add(this.lockChatCheckBox);
             this.chatSettingsPanel.Controls.Add(this.topMostCheckBox);
-            this.chatSettingsPanel.Location = new System.Drawing.Point(206, 124);
+            this.chatSettingsPanel.Location = new System.Drawing.Point(206, 79);
             this.chatSettingsPanel.Name = "chatSettingsPanel";
-            this.chatSettingsPanel.Size = new System.Drawing.Size(165, 139);
+            this.chatSettingsPanel.Size = new System.Drawing.Size(165, 184);
             this.chatSettingsPanel.TabIndex = 10;
             this.chatSettingsPanel.Visible = false;
             // 
@@ -217,6 +219,16 @@
             this.clearChatButton.Text = "Clear";
             this.clearChatButton.UseVisualStyleBackColor = true;
             this.clearChatButton.Click += new System.EventHandler(this.clearChatButton_Click);
+            // 
+            // chatExportButton
+            // 
+            this.chatExportButton.Location = new System.Drawing.Point(17, 142);
+            this.chatExportButton.Name = "chatExportButton";
+            this.chatExportButton.Size = new System.Drawing.Size(111, 23);
+            this.chatExportButton.TabIndex = 12;
+            this.chatExportButton.Text = "Export Chat as Json";
+            this.chatExportButton.UseVisualStyleBackColor = true;
+            this.chatExportButton.Click += new System.EventHandler(this.chatExportButton_Click);
             // 
             // MainForm
             // 
@@ -268,6 +280,7 @@
         private System.Windows.Forms.ContextMenuStrip chatHistoryContextMenu;
         private System.Windows.Forms.ToolStripMenuItem chatHistoryContMenuFont;
         private System.Windows.Forms.Button clearChatButton;
+        private System.Windows.Forms.Button chatExportButton;
     }
 }
 

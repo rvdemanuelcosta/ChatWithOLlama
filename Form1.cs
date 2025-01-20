@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ using Newtonsoft.Json;
 using System.Dynamic;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ChatWithLlama
 {
@@ -23,6 +25,7 @@ namespace ChatWithLlama
         public static string systemMessageText = "";
         SystemMessageForm smf;
         public static Label loadedModelTextLabel;
+        
         public static string modelName { get; set; }
         
         public MainForm()
@@ -44,6 +47,21 @@ namespace ChatWithLlama
                 UpdateSystemMessageText();
             }
             UpdateChatHistoryFont();
+        }
+        
+        private void ExportChatAsJson()
+        {
+            string jsonstring = JsonConvert.SerializeObject(conversationHistory, Formatting.Indented);
+            SaveFileDialog dialog = new SaveFileDialog();
+            string savePath = "C:/";
+            
+            dialog.Filter = "Json Files (*.json)|*.json|All Files (*.*)|*.*";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                savePath = dialog.FileName;
+                File.WriteAllText(savePath, jsonstring);
+                MessageBox.Show($" Chat exported as {dialog.FileName}");
+            }
         }
 
         private void UpdateLocation(object sender, EventArgs e)
@@ -67,7 +85,7 @@ namespace ChatWithLlama
         //}
         public async Task<string> SendToLlama()
         {
-
+            
             try
             {
                 using (var httpClient = new HttpClient())
@@ -291,11 +309,19 @@ namespace ChatWithLlama
         private void clearChatButton_Click(object sender, EventArgs e)
         {
             ClearChat();
+            
+            
         }
         private void ClearChat()
         {
             chatHistoryOutput.Text = "";
             conversationHistory.Clear();
+            
+        }
+
+        private void chatExportButton_Click(object sender, EventArgs e)
+        {
+            ExportChatAsJson();
         }
     }
 
