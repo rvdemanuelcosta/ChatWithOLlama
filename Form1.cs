@@ -63,6 +63,8 @@ namespace ChatWithLlama
             UpdateChatHistoryFont();
             windowTitlePanel.MouseDown += WindowTitlePanel_MouseDown;
             windowTitlePanel.MouseMove += WindowTitlePanel_MouseMove;
+            formTitleLabel.MouseDown += WindowTitlePanel_MouseDown;
+            formTitleLabel.MouseMove += WindowTitlePanel_MouseMove;
             formTitleLabel.Text = this.Text;
             chatSizeComboBox.SelectedItem = Properties.Settings.Default.chatSizeName;
             ChangeChatSize(Properties.Settings.Default.chatSizeName);
