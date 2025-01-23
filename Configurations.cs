@@ -39,6 +39,8 @@ namespace ChatWithLlama
             Properties.Settings.Default.Reload();
             formTitlePanel.MouseDown += FormTitlePanel_MouseDown;
             formTitlePanel.MouseMove += FormTitlePanel_MouseMove;
+            formTitleLabel.MouseDown += FormTitlePanel_MouseDown;
+            formTitleLabel.MouseMove += FormTitlePanel_MouseMove;
             formTitleLabel.Text = this.Text;
         }
 
